@@ -1,19 +1,24 @@
+
 const puppeteer = require('puppeteer')
-const prompts = require('prompts');
 
-(async () => {
-    const response = await prompts({
-        type: 'text',
-        name: 'url',
-        message: 'Paste a link to scrape pictures',
 
-    });
+const http = require('http')
+const hostname = '127.0.0.1';
+const port = 3000;
 
-    console.log(response);
-    scrapeUrl(response.url)
-})();
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
+});
 
-async function scrapeUrl(url) {
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+
+
+async function scrapeUrl(txt) {
     const browser = await puppeteer.launch({args: ['--no-sandbox']});
     const page = await browser.newPage()
 
@@ -26,6 +31,8 @@ async function scrapeUrl(url) {
     })
 
     await browser.close()
-    console.log(data)
+    // console.log(typeof data)
     return data
 }
+
+const final = scrapeUrl('https://www.instagram.com/rafayx77')
