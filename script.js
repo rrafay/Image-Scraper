@@ -8,8 +8,9 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+  res.setHeader('Content-Type', 'application/json');
+  res.write(JSON.stringify(scrapeUrl('https://www.instagram.com/rafayx77')))
+  res.end();
 });
 
 server.listen(port, hostname, () => {
@@ -18,7 +19,7 @@ server.listen(port, hostname, () => {
 
 
 
-async function scrapeUrl(txt) {
+async function scrapeUrl(url) {
     const browser = await puppeteer.launch({args: ['--no-sandbox']});
     const page = await browser.newPage()
 
@@ -35,4 +36,4 @@ async function scrapeUrl(txt) {
     return data
 }
 
-const final = scrapeUrl('https://www.instagram.com/rafayx77')
+//scrapeUrl('https://www.instagram.com/rafayx77')
