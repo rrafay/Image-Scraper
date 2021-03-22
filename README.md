@@ -1,6 +1,6 @@
 # Image-Scraper
 Scrape pictures off web pages using this node program. :partying_face:
-This array outputs an array of links to the photos.
+This program outputs an array of links to the photos.
 
 #### Install the required dependencies:
 ```
