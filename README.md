@@ -1,5 +1,6 @@
 # Image-Scraper
 Scrape pictures off web pages using this node program. :partying_face:
+This array outputs an array of links to the photos.
 
 #### Install the required dependencies:
 ```
@@ -14,9 +15,14 @@ node script.js
 
 ```
 
-Next, paste the link to the website where you'd like to scrape images from.
+Note:
+Change the link to the website where you'd like to scrape images from in your local script.js
 
 For instance: 
-https://www.instagram.com/liverpoolgoals
+```
+const data = await scrapeUrl('https://www.reddit.com/r/memes/')
 
-This will output an array of links to the photos.
+```
+
+
+
